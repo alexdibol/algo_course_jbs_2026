@@ -1,1 +1,481 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Algo Systems — Self-Teaching Formation in Algorithmic Trading</title>
+  <meta name="description" content="A self-teaching course in algorithmic trading built around three pillars: system formation, strategy architecture, and market understanding." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#0b0c10;
+      --bg2:#111318;
+      --card:#151922;
+      --card2:#1a1f2b;
+      --text:#f3efe6;
+      --muted:#c7c0b2;
+      --soft:#9aa3b2;
+      --line:rgba(255,255,255,0.08);
+      --accent:#d6b36a;
+      --accent2:#8fb7ff;
+      --shadow:0 18px 50px rgba(0,0,0,0.35);
+      --max:1200px;
+      --radius:22px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(214,179,106,0.10), transparent 28%),
+        radial-gradient(circle at top right, rgba(143,183,255,0.10), transparent 24%),
+        linear-gradient(180deg, #090a0d 0%, #0d1015 40%, #0b0c10 100%);
+      font-family:"DM Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height:1.6;
+    }
+
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    .wrap{
+      width:min(var(--max), calc(100% - 32px));
+      margin:0 auto;
+    }
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter: blur(14px);
+      background:rgba(11,12,16,0.72);
+      border-bottom:1px solid var(--line);
+    }
+
+    .topbar-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:14px 0;
+    }
+
+    .brand{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+    }
+
+    .brand-kicker{
+      font-family:"DM Mono", monospace;
+      font-size:12px;
+      color:var(--accent);
+      letter-spacing:0.08em;
+      text-transform:uppercase;
+    }
+
+    .brand-title{
+      font-family:"Playfair Display", serif;
+      font-size:24px;
+      line-height:1.1;
+      font-weight:700;
+      letter-spacing:0.01em;
+    }
+
+    .toplinks{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .chip{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,0.03);
+      color:var(--muted);
+      padding:10px 14px;
+      border-radius:999px;
+      font-size:14px;
+      transition:all .2s ease;
+    }
+
+    .chip:hover{
+      color:var(--text);
+      border-color:rgba(214,179,106,0.5);
+      transform:translateY(-1px);
+    }
+
+    .hero{
+      padding:72px 0 36px;
+    }
+
+    .hero-box{
+      display:grid;
+      grid-template-columns:1.25fr 0.95fr;
+      gap:28px;
+      align-items:stretch;
+    }
+
+    .panel{
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    .hero-main{
+      padding:38px;
+    }
+
+    .eyebrow{
+      display:inline-block;
+      margin-bottom:16px;
+      font-family:"DM Mono", monospace;
+      color:var(--accent);
+      font-size:12px;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+    }
+
+    h1,h2,h3{
+      margin:0;
+      line-height:1.12;
+    }
+
+    h1{
+      font-family:"Playfair Display", serif;
+      font-weight:900;
+      font-size:clamp(2.2rem, 5vw, 4.5rem);
+      margin-bottom:18px;
+    }
+
+    .lead{
+      color:var(--muted);
+      font-size:1.06rem;
+      max-width:64ch;
+      margin:0 0 24px 0;
+    }
+
+    .actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-top:22px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:14px 18px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      font-weight:500;
+      transition:all .2s ease;
+    }
+
+    .btn.primary{
+      background:linear-gradient(135deg, rgba(214,179,106,0.18), rgba(214,179,106,0.08));
+      border-color:rgba(214,179,106,0.38);
+    }
+
+    .btn.secondary{
+      background:rgba(255,255,255,0.03);
+      color:var(--muted);
+    }
+
+    .btn:hover{
+      transform:translateY(-2px);
+      color:var(--text);
+    }
+
+    .hero-side{
+      padding:26px;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+
+    .metric{
+      padding:18px 18px 16px;
+      border-radius:18px;
+      background:linear-gradient(180deg, rgba(143,183,255,0.08), rgba(255,255,255,0.02));
+      border:1px solid var(--line);
+    }
+
+    .metric-label{
+      font-family:"DM Mono", monospace;
+      font-size:12px;
+      color:var(--soft);
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+      margin-bottom:8px;
+    }
+
+    .metric-value{
+      font-size:1.9rem;
+      font-weight:700;
+      margin-bottom:6px;
+    }
+
+    .metric p{
+      margin:0;
+      color:var(--muted);
+      font-size:0.96rem;
+    }
+
+    section{
+      padding:34px 0;
+    }
+
+    .section-head{
+      margin-bottom:22px;
+    }
+
+    .section-kicker{
+      font-family:"DM Mono", monospace;
+      font-size:12px;
+      color:var(--accent);
+      text-transform:uppercase;
+      letter-spacing:0.1em;
+      margin-bottom:10px;
+    }
+
+    .section-title{
+      font-family:"Playfair Display", serif;
+      font-size:clamp(1.8rem, 3vw, 2.8rem);
+      margin-bottom:10px;
+    }
+
+    .section-copy{
+      color:var(--muted);
+      max-width:80ch;
+      margin:0;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:20px;
+    }
+
+    .card{
+      display:block;
+      background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:22px;
+      box-shadow:var(--shadow);
+      transition:transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-4px);
+      border-color:rgba(214,179,106,0.35);
+      background:linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+    }
+
+    .card h3{
+      font-family:"Playfair Display", serif;
+      font-size:1.45rem;
+      margin-bottom:12px;
+    }
+
+    .card p{
+      margin:0 0 16px 0;
+      color:var(--muted);
+    }
+
+    .hint{
+      margin-top:auto;
+      font-family:"DM Mono", monospace;
+      font-size:12px;
+      color:var(--accent2);
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+    }
+
+    .note{
+      padding:24px;
+    }
+
+    .note h3{
+      font-family:"Playfair Display", serif;
+      font-size:1.5rem;
+      margin-bottom:10px;
+    }
+
+    .note p{
+      color:var(--muted);
+      margin:0;
+    }
+
+    footer{
+      padding:42px 0 58px;
+      color:var(--soft);
+    }
+
+    .footer-box{
+      padding:24px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:16px;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .footer-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+
+    @media (max-width: 980px){
+      .hero-box,
+      .grid,
+      .two-col{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media (max-width: 680px){
+      .hero{padding-top:48px}
+      .hero-main,.hero-side,.note,.footer-box{padding:20px}
+      .topbar-inner{align-items:flex-start;flex-direction:column}
+      .brand-title{font-size:20px}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wrap topbar-inner">
+      <div class="brand">
+        <div class="brand-kicker">Self-Teaching Formation</div>
+        <div class="brand-title">Algo Systems</div>
+      </div>
+      <nav class="toplinks" aria-label="Top links">
+        <a class="chip" href="https://alexdibol.github.io/algo_self_teaching/" target="_blank" rel="noopener">Main Landing Page</a>
+        <a class="chip" href="https://github.com/alexdibol/algo_self_teaching/tree/main" target="_blank" rel="noopener">Repository</a>
+        <a class="chip" href="https://github.com/alexdibol" target="_blank" rel="noopener">GitHub Profile</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-box">
+        <div class="panel hero-main">
+          <div class="eyebrow">Course Landing Page</div>
+          <h1>Algo Systems — Institutional Formation in Algorithmic Trading</h1>
+          <p class="lead">
+            A self-teaching architecture for algorithmic trading built to move from foundations to implementation with discipline, reproducibility, execution realism, and human accountability. The course is organized around three pillars that together define a coherent formation in modern trading systems.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="https://alexdibol.github.io/algo_self_teaching/" target="_blank" rel="noopener">Open Main Course</a>
+            <a class="btn secondary" href="https://github.com/alexdibol/algo_self_teaching/tree/main" target="_blank" rel="noopener">Open Repository</a>
+          </div>
+        </div>
+
+        <aside class="panel hero-side" aria-label="Course summary">
+          <div class="metric">
+            <div class="metric-label">Structure</div>
+            <div class="metric-value">3 Pillars</div>
+            <p>System formation, strategy architecture, and market understanding presented as a unified educational ladder.</p>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Orientation</div>
+            <div class="metric-value">Self-Teaching</div>
+            <p>Designed for independent progression through tightly connected learning domains and external resources.</p>
+          </div>
+          <div class="metric">
+            <div class="metric-label">Focus</div>
+            <div class="metric-value">Discipline → Exploration → Implementation</div>
+            <p>An institutional view of algorithmic trading rather than a collection of disconnected tactics.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-kicker">Core Navigation</div>
+          <h2 class="section-title">The Three Pillars</h2>
+          <p class="section-copy">
+            Each pillar points to a dedicated landing page. Together they define the full structure of the course and the progression expected from the learner.
+          </p>
+        </div>
+
+        <div class="grid">
+          <a class="card linkcard" href="https://alexdibol.github.io/ai-algo-trading-notebooks/" target="_blank" rel="noopener" aria-label="Pillar I — Landing Page">
+            <h3>Pillar I — Foundations of Algorithmic Trading Systems</h3>
+            <p>
+              The formation layer where the learner builds conceptual discipline around system design, reproducibility, testing logic, and the operational realities of algorithmic trading.
+            </p>
+            <div class="hint">Open pillar I →</div>
+          </a>
+
+          <a class="card linkcard" href="https://alexdibol.github.io/algo_strategies/" target="_blank" rel="noopener" aria-label="Pillar II — Landing Page">
+            <h3>Pillar II — Strategy Architecture and Trading Logic</h3>
+            <p>
+              The strategy layer where ideas are structured into coherent trading frameworks, linking hypothesis formation, signal design, portfolio logic, and implementation discipline.
+            </p>
+            <div class="hint">Open pillar II →</div>
+          </a>
+
+          <a class="card linkcard" href="https://alexdibol.github.io/markets_for_traders/" target="_blank" rel="noopener" aria-label="Pillar III — Landing Page">
+            <h3>Pillar III — Markets for Traders</h3>
+            <p>
+              The market layer where execution, market structure, institutional frictions, and the practical ecology of trading are studied as essential parts of real-world system design.
+            </p>
+            <div class="hint">Open pillar III →</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap two-col">
+        <div class="panel note">
+          <div class="section-kicker">Why This Structure</div>
+          <h3>A Coherent Formation, Not a Loose Collection</h3>
+          <p>
+            The course is meant to function as a complete formation framework. It is not merely a repository of notes or isolated models. The three pillars are intended to work together so that technical method, strategic thought, and market understanding reinforce one another.
+          </p>
+        </div>
+
+        <div class="panel note">
+          <div class="section-kicker">Publication State</div>
+          <h3>Revised External Links</h3>
+          <p>
+            This version uses the updated main landing page and updated repository destination, while preserving the existing live links for Pillars I, II, and III. No internal anchor mapping is required for the page to function.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap panel footer-box">
+      <div>
+        <strong style="font-family:'Playfair Display', serif; font-size:1.1rem;">Algo Systems</strong><br />
+        <span>Self-teaching architecture for algorithmic trading.</span>
+      </div>
+      <div class="footer-links">
+        <a class="chip" href="https://alexdibol.github.io/algo_self_teaching/" target="_blank" rel="noopener">Main Course</a>
+        <a class="chip" href="https://github.com/alexdibol/algo_self_teaching/tree/main" target="_blank" rel="noopener">Repository</a>
+        <a class="chip" href="https://github.com/alexdibol" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
