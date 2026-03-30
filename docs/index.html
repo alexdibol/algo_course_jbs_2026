@@ -16,6 +16,7 @@
   --gold-light: #b09a58;
   --red: #7a1f1f;
   --green: #1a4a2e;
+  --blue: #1c3557;
   --rule: rgba(10,10,10,0.14);
   --rule-heavy: rgba(10,10,10,0.38);
 }
@@ -88,7 +89,7 @@ a { color: inherit; }
   line-height: 0.95;
   font-weight: 900;
   letter-spacing: -0.02em;
-  max-width: 800px;
+  max-width: 900px;
   margin-bottom: 8px;
 }
 .hero-headline em { font-style: italic; color: var(--gold-light); }
@@ -97,7 +98,7 @@ a { color: inherit; }
   font-size: clamp(16px, 2.2vw, 24px);
   font-style: italic; font-weight: 400;
   color: rgba(242,240,234,0.55);
-  max-width: 660px;
+  max-width: 760px;
   margin: 28px 0 48px;
   line-height: 1.5;
 }
@@ -140,7 +141,7 @@ blockquote cite {
   font-style: normal; margin-top: 20px;
   opacity: 0.5; text-transform: uppercase;
 }
-.right-intro { font-size: 15px; line-height: 1.8; color: rgba(10,10,10,0.72); max-width: 540px; }
+.right-intro { font-size: 15px; line-height: 1.8; color: rgba(10,10,10,0.72); max-width: 580px; }
 .right-intro strong { color: var(--ink); font-weight: 500; }
 
 /* SECTION HEADERS */
@@ -158,6 +159,122 @@ blockquote cite {
 .thesis-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; padding-bottom: 14px; border-bottom: 1px solid var(--rule); }
 .thesis-title { font-family: 'Playfair Display', Georgia, serif; font-size: 19px; font-weight: 700; margin-bottom: 14px; line-height: 1.25; }
 .thesis-body { font-size: 14px; line-height: 1.78; color: rgba(10,10,10,0.65); }
+
+/* BRIDGE SECTION */
+.bridge-section {
+  padding: 80px 60px;
+  border-bottom: 1px solid var(--rule-heavy);
+  background: linear-gradient(180deg, var(--paper) 0%, #ece7da 100%);
+}
+.bridge-intro {
+  max-width: 980px;
+  font-size: 16px;
+  line-height: 1.9;
+  color: rgba(10,10,10,0.74);
+  margin-bottom: 40px;
+}
+.bridge-intro strong { color: var(--ink); font-weight: 500; }
+.bridge-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1.4fr;
+  gap: 0;
+  border: 1px solid var(--rule-heavy);
+  background: rgba(255,255,255,0.35);
+}
+.bridge-left {
+  padding: 40px 34px;
+  border-right: 1px solid var(--rule-heavy);
+  background: rgba(255,255,255,0.28);
+}
+.bridge-right {
+  padding: 40px 34px;
+}
+.bridge-kicker {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 14px;
+}
+.bridge-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+.bridge-body {
+  font-size: 14px;
+  line-height: 1.82;
+  color: rgba(10,10,10,0.68);
+  margin-bottom: 22px;
+}
+.bridge-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--red);
+  text-decoration: none;
+  border-bottom: 1px solid var(--red);
+  padding-bottom: 2px;
+}
+.bridge-link:hover { opacity: 0.7; }
+.bridge-stack {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 0;
+  border-top: 1px solid var(--rule-heavy);
+  border-left: 1px solid var(--rule-heavy);
+}
+.bridge-box {
+  padding: 24px 22px;
+  border-right: 1px solid var(--rule-heavy);
+  border-bottom: 1px solid var(--rule-heavy);
+  background: rgba(255,255,255,0.22);
+}
+.bridge-box-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+.bridge-box-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 1.25;
+}
+.bridge-box-body {
+  font-size: 13px;
+  line-height: 1.72;
+  color: rgba(10,10,10,0.64);
+}
+.bridge-flow {
+  margin-top: 28px;
+  border-top: 1px solid var(--rule-heavy);
+  padding-top: 24px;
+}
+.bridge-flow-title {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--blue);
+  margin-bottom: 12px;
+}
+.bridge-flow-line {
+  font-size: 14px;
+  line-height: 1.9;
+  color: rgba(10,10,10,0.7);
+}
 
 /* PILLARS */
 .pillars-section { padding: 80px 60px; background: var(--dark); color: var(--paper); border-bottom: 3px double rgba(242,240,234,0.12); }
@@ -217,7 +334,7 @@ blockquote cite {
 
 /* START */
 .start-section { padding: 80px 60px; border-bottom: 1px solid var(--rule-heavy); }
-.start-steps { display: grid; grid-template-columns: repeat(3,1fr); border: 1px solid var(--rule-heavy); margin-top: 48px; }
+.start-steps { display: grid; grid-template-columns: repeat(4,1fr); border: 1px solid var(--rule-heavy); margin-top: 48px; }
 .start-step { padding: 46px 34px; border-right: 1px solid var(--rule-heavy); }
 .start-step:last-child { border-right: none; }
 .step-num { font-family: 'Playfair Display', Georgia, serif; font-size: 76px; font-weight: 900; color: rgba(10,10,10,0.06); line-height: 1; margin-bottom: 14px; }
@@ -244,7 +361,7 @@ blockquote cite {
   pointer-events: none; white-space: nowrap;
 }
 .cta-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 24px; }
-.cta-headline { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(30px, 4.5vw, 54px); font-weight: 900; line-height: 1.05; letter-spacing: -0.02em; max-width: 720px; margin: 0 auto 16px; }
+.cta-headline { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(30px, 4.5vw, 54px); font-weight: 900; line-height: 1.05; letter-spacing: -0.02em; max-width: 840px; margin: 0 auto 16px; }
 .cta-sub { font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-size: 19px; color: rgba(242,240,234,0.5); margin-bottom: 44px; }
 .cta-buttons { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
 
@@ -256,48 +373,52 @@ footer { padding: 40px 60px; display: flex; align-items: center; justify-content
 .footer-link:hover { text-decoration: underline; }
 
 @media (max-width: 960px) {
-  .masthead, .hero, .thesis-section, .pillars-section, .inside-section, .for-whom, .start-section, .cta-section, footer { padding-left: 24px; padding-right: 24px; }
+  .masthead, .hero, .thesis-section, .bridge-section, .pillars-section, .inside-section, .for-whom, .start-section, .cta-section, footer { padding-left: 24px; padding-right: 24px; }
   .masthead-date { display: none; }
   .hero::before, .hero::after { display: none; }
   .pull-quote-section { grid-template-columns: 1fr; }
   .pull-quote-divider { display: none; }
   .pull-quote-left, .pull-quote-right { padding: 40px 24px; }
-  .thesis-grid, .pillars-grid, .profiles-grid, .start-steps { grid-template-columns: 1fr; }
-  .thesis-item, .pillar-card, .profile-card, .start-step { border-right: none; border-bottom: 1px solid var(--rule-heavy); }
-  .inside-grid { grid-template-columns: repeat(2,1fr); }
+  .thesis-grid, .pillars-grid, .profiles-grid, .start-steps, .bridge-grid { grid-template-columns: 1fr; }
+  .thesis-item, .pillar-card, .profile-card, .start-step, .bridge-left { border-right: none; border-bottom: 1px solid var(--rule-heavy); }
+  .inside-grid, .bridge-stack { grid-template-columns: repeat(2,1fr); }
   .section-title { white-space: normal; font-size: clamp(24px, 5vw, 36px); }
   footer { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 640px) {
+  .inside-grid, .bridge-stack { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 
 <header class="masthead">
-  <span class="masthead-date">Est. 2026 · Three Pillars</span>
+  <span class="masthead-date">Est. 2026 · Three Pillars + Bridge</span>
   <span class="masthead-title">Algorithmic Trading & Algorithmic Systems</span>
   <span class="masthead-tag">Open Access · Free</span>
 </header>
 
 <section class="hero">
-  <div class="hero-kicker">For Systematic Traders & Quant Practitioners</div>
-  <h1 class="hero-headline">The Market Is a<br><em>Machine.</em><br>Learn Its Grammar.</h1>
-  <p class="hero-sub">A complete, free, mechanism-first engineering program for building algorithmic trading systems that survive contact with real markets.</p>
+  <div class="hero-kicker">For Systematic Traders, Quant Researchers & Implementation Builders</div>
+  <h1 class="hero-headline">The Market Is a<br><em>Machine.</em><br>Learn Its Grammar.<br>Then Build the Bridge.</h1>
+  <p class="hero-sub">A complete, free, mechanism-first engineering program for building algorithmic trading systems — from research and strategy design to governed implementation using agentic workflows.</p>
   <div class="hero-meta">
     <div class="meta-item">
       <span class="meta-label">Access</span>
       <span class="meta-value em">Free</span>
     </div>
     <div class="meta-item">
-      <span class="meta-label">Pillars</span>
+      <span class="meta-label">Core Pillars</span>
       <span class="meta-value">3</span>
     </div>
     <div class="meta-item">
-      <span class="meta-label">Chapters</span>
-      <span class="meta-value">32</span>
+      <span class="meta-label">Methodological Bridge</span>
+      <span class="meta-value">Agents + Colab</span>
     </div>
     <div class="meta-item">
-      <span class="meta-label">Markets Covered</span>
-      <span class="meta-value">Equities · Futures · FX · Rates · Credit · Vol · Crypto</span>
+      <span class="meta-label">Orientation</span>
+      <span class="meta-value">Governance · Transparency · Defensibility</span>
     </div>
     <div class="meta-item">
       <span class="meta-label">Author</span>
@@ -306,7 +427,7 @@ footer { padding: 40px 60px; display: flex; align-items: center; justify-content
   </div>
   <div class="hero-actions">
     <a href="https://alexdibol.github.io/algo_self_teaching/" class="btn-primary" target="_blank" rel="noopener">Open Course Landing Page →</a>
-    <a href="https://github.com/alexdibol/algo_self_teaching" class="btn-secondary" target="_blank" rel="noopener">Browse Repositories</a>
+    <a href="https://github.com/alexdibol/algo_self_teaching/tree/main/agents" class="btn-secondary" target="_blank" rel="noopener">Open Research-to-Implementation Bridge</a>
   </div>
 </section>
 
@@ -321,8 +442,8 @@ footer { padding: 40px 60px; display: flex; align-items: center; justify-content
   <div class="pull-quote-right">
     <p class="right-intro">
       Most algorithmic trading education fails in one of three ways. It is too theoretical to become executable. Too technical to become conceptually meaningful. Or too promotional to be intellectually trustworthy.<br><br>
-      <strong>This course was built to resolve that fragmentation.</strong> It treats a trading system not as a collection of signals and indicators, but as a complete engineering discipline — from data governance through strategy design to market mechanics and systemic stress.<br><br>
-      Three pillars. Thirty-two chapters. Full books. Notebooks. Video lectures. All free. No institutional backing required.
+      <strong>This course was built to resolve that fragmentation.</strong> It treats a trading system not as a collection of signals and indicators, but as a complete engineering discipline — from data governance through strategy design to market mechanics, implementation discipline, and systemic stress.<br><br>
+      Three pillars form the intellectual core. A new methodological bridge shows how to move from research to implementation using agents without surrendering governance, human accountability, or institutional defensibility.
     </p>
   </div>
 </section>
@@ -352,9 +473,67 @@ footer { padding: 40px 60px; display: flex; align-items: center; justify-content
   </div>
 </section>
 
-<section class="pillars-section">
+<section class="bridge-section">
   <div class="section-header">
     <span class="section-number">§ 02</span>
+    <h2 class="section-title">The Bridge from Research to Implementation</h2>
+    <div class="section-rule"></div>
+  </div>
+
+  <p class="bridge-intro">
+    In addition to the three core pillars, Algo Systems now includes a dedicated <strong>cross-pillar methodological bridge</strong>: a book and a set of accompanying Colab notebooks that show how modern AI can be used to move from research artifacts to implementation-ready systems through <strong>specialized agents</strong>. This bridge does not replace the pillars. It connects them. Its purpose is to show, in a governed way, how a research idea becomes code, how code becomes an interpretable object, how that object is evaluated under fail-closed logic, and how research environments can be translated into deployment-oriented workflows without sacrificing transparency, accountability, or defensibility.
+  </p>
+
+  <div class="bridge-grid">
+    <div class="bridge-left">
+      <div class="bridge-kicker">Cross-Pillar Methodological Layer</div>
+      <div class="bridge-title">Agentic Research-to-Implementation Architecture</div>
+      <p class="bridge-body">
+        The bridge is designed for a modern reality: research often begins in notebooks, ideas often begin in prose, and implementation often lives in stricter environments such as QuantConnect and related production-facing systems. The challenge is not merely technical translation. The challenge is preserving meaning, making assumptions visible, and keeping the workflow institutionally reviewable.
+      </p>
+      <p class="bridge-body">
+        The book and notebooks in this layer introduce a governed architecture of agents that help transform fragmented strategy work into a coherent lifecycle: generation, interpretation, evaluation, migration, and reporting. The emphasis is not automation theater. The emphasis is disciplined transformation under evidence, auditability, and human control.
+      </p>
+      <a class="bridge-link" href="https://github.com/alexdibol/algo_self_teaching/tree/main/agents" target="_blank" rel="noopener">Open Book + Notebooks →</a>
+    </div>
+
+    <div class="bridge-right">
+      <div class="bridge-stack">
+        <div class="bridge-box">
+          <div class="bridge-box-label">Agent 01</div>
+          <div class="bridge-box-title">Code Generator</div>
+          <div class="bridge-box-body">Transforms research intent, prose logic, or structured hypotheses into platform-aware implementation drafts. The goal is not generic code fluency, but implementation that respects workflow structure and downstream reviewability.</div>
+        </div>
+        <div class="bridge-box">
+          <div class="bridge-box-label">Agent 02</div>
+          <div class="bridge-box-title">Report Generator</div>
+          <div class="bridge-box-body">Converts code into disciplined prose so that a strategy can be read, challenged, and discussed as an intelligible object. Interpretability is treated as part of the research lifecycle, not as a cosmetic afterthought.</div>
+        </div>
+        <div class="bridge-box">
+          <div class="bridge-box-label">Agent 03</div>
+          <div class="bridge-box-title">Governance Evaluator</div>
+          <div class="bridge-box-body">Applies semantic sufficiency tests, liveness checks, robustness analysis, and fail-closed logic. A strategy should not advance merely because it runs. It should advance because it remains meaningful, legible, and defensible under structured review.</div>
+        </div>
+        <div class="bridge-box">
+          <div class="bridge-box-label">Agent 04</div>
+          <div class="bridge-box-title">Research-to-Implementation Converter</div>
+          <div class="bridge-box-body">Bridges research environments and implementation environments. It makes explicit the adaptations required when notebook-based exploration is migrated into deployment-oriented structures with different timing, state, and execution assumptions.</div>
+        </div>
+      </div>
+
+      <div class="bridge-flow">
+        <div class="bridge-flow-title">Lifecycle Logic</div>
+        <div class="bridge-flow-line">
+          Research idea → governed notebook artifact → agent-assisted code generation → interpretive reporting → governance review → implementation migration → defensible strategy workflow
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pillars-section">
+  <div class="section-header">
+    <span class="section-number">§ 03</span>
     <h2 class="section-title">Three Pillars</h2>
     <div class="section-rule"></div>
   </div>
@@ -429,7 +608,7 @@ footer { padding: 40px 60px; display: flex; align-items: center; justify-content
 
 <section class="inside-section">
   <div class="section-header">
-    <span class="section-number">§ 03</span>
+    <span class="section-number">§ 04</span>
     <h2 class="section-title">What You Receive</h2>
     <div class="section-rule"></div>
   </div>
@@ -441,8 +620,13 @@ footer { padding: 40px 60px; display: flex; align-items: center; justify-content
     </div>
     <div class="inside-item">
       <div class="inside-icon">📚</div>
-      <div class="inside-count">3</div>
-      <div class="inside-label">Full-Length PDF Books</div>
+      <div class="inside-count">3 + 1</div>
+      <div class="inside-label">Core Books + Bridge Book</div>
+    </div>
+    <div class="inside-item">
+      <div class="inside-icon">🤖</div>
+      <div class="inside-count">4</div>
+      <div class="inside-label">Implementation Bridge Agents</div>
     </div>
     <div class="inside-item">
       <div class="inside-icon">🎬</div>
@@ -465,11 +649,6 @@ footer { padding: 40px 60px; display: flex; align-items: center; justify-content
       <div class="inside-label">Asset Classes</div>
     </div>
     <div class="inside-item">
-      <div class="inside-icon">⚙️</div>
-      <div class="inside-count">∞</div>
-      <div class="inside-label">Runnable Code</div>
-    </div>
-    <div class="inside-item">
       <div class="inside-icon">💰</div>
       <div class="inside-count">$0</div>
       <div class="inside-label">Total Cost</div>
@@ -479,7 +658,7 @@ footer { padding: 40px 60px; display: flex; align-items: center; justify-content
 
 <section class="for-whom">
   <div class="section-header">
-    <span class="section-number">§ 04</span>
+    <span class="section-number">§ 05</span>
     <h2 class="section-title">Who This Is For</h2>
     <div class="section-rule"></div>
   </div>
@@ -487,24 +666,24 @@ footer { padding: 40px 60px; display: flex; align-items: center; justify-content
     <div class="profile-card">
       <div class="profile-number">1</div>
       <div class="profile-role">The Quant Who Needs More Than Math</div>
-      <p class="profile-desc">You can build models but your backtests keep looking better than your live results. This course teaches the systematic causes of that gap: leakage, execution naivety, cost blindness, and the structural fragility hidden inside apparently clean research.</p>
+      <p class="profile-desc">You can build models but your backtests keep looking better than your live results. This course teaches the systematic causes of that gap: leakage, execution naivety, cost blindness, structural fragility, and now also the governance gap between research code and implementation-ready systems.</p>
     </div>
     <div class="profile-card">
       <div class="profile-number">2</div>
       <div class="profile-role">The Trader Who Needs to Systematize</div>
-      <p class="profile-desc">You understand markets deeply but your edge is implicit, discretionary, and hard to scale. This course gives you the framework to convert market intuition into auditable, reproducible systems — without losing the structural understanding that makes the intuition valuable.</p>
+      <p class="profile-desc">You understand markets deeply but your edge is implicit, discretionary, and hard to scale. This course gives you the framework to convert market intuition into auditable, reproducible systems — and the new methodological bridge helps translate that research into implementation with agentic assistance under human control.</p>
     </div>
     <div class="profile-card">
       <div class="profile-number">3</div>
       <div class="profile-role">The Researcher Who Needs Execution Reality</div>
-      <p class="profile-desc">You know how to build signals but you have not yet confronted what markets do to them once costs, liquidity, regime change, and systemic stress are allowed to play their full role. Pillar 3 alone will change how you read every backtest you have ever run.</p>
+      <p class="profile-desc">You know how to build signals but have not yet confronted what markets do to them once costs, liquidity, regime change, system migration, and implementation constraints play their full role. This formation connects theory, laboratory logic, market structure, and governed implementation into one continuous workflow.</p>
     </div>
   </div>
 </section>
 
 <section class="start-section">
   <div class="section-header">
-    <span class="section-number">§ 05</span>
+    <span class="section-number">§ 06</span>
     <h2 class="section-title">Where to Begin</h2>
     <div class="section-rule"></div>
   </div>
@@ -527,22 +706,28 @@ footer { padding: 40px 60px; display: flex; align-items: center; justify-content
       <p class="step-body">Pillar III is where everything deepens. Seven asset classes, each examined through state, surface, and action. The course concludes with The ABC of Trading — a synthesis that converts everything into a single professional framework for any market.</p>
       <a href="https://alexdibol.github.io/markets_for_traders/" class="step-link" target="_blank" rel="noopener">Open Pillar III →</a>
     </div>
+    <div class="start-step">
+      <div class="step-num">4</div>
+      <div class="step-title">Build the Research-to-Implementation Bridge</div>
+      <p class="step-body">Then move into the agentic methodological layer. Use the book and Colab notebooks to see how research ideas become code, how code becomes interpretable artifacts, how governance evaluates semantic sufficiency, and how exploratory work is translated into implementation without sacrificing defensibility.</p>
+      <a href="https://github.com/alexdibol/algo_self_teaching/tree/main/agents" class="step-link" target="_blank" rel="noopener">Open Agents Bridge →</a>
+    </div>
   </div>
 </section>
 
 <section class="cta-section">
   <div class="cta-label">Open Access · GitHub Repositories · No Registration · No Cost</div>
-  <h2 class="cta-headline">Do not just read the theory.<br>Run the laboratory.</h2>
-  <p class="cta-sub">Every chapter has a notebook. Every notebook has a mechanism. Every mechanism has a failure mode.</p>
+  <h2 class="cta-headline">Do not just read the theory.<br>Run the laboratory. Build the bridge. Govern the workflow.</h2>
+  <p class="cta-sub">Every chapter has a notebook. Every notebook has a mechanism. Every mechanism has a failure mode. Every implementation deserves governance.</p>
   <div class="cta-buttons">
     <a href="https://alexdibol.github.io/algo_self_teaching/" class="btn-primary" target="_blank" rel="noopener">Open Course Landing Page →</a>
-    <a href="https://github.com/alexdibol" class="btn-secondary" target="_blank" rel="noopener">Browse All Repositories</a>
+    <a href="https://github.com/alexdibol/algo_self_teaching/tree/main/agents" class="btn-secondary" target="_blank" rel="noopener">Open Research-to-Implementation Bridge</a>
   </div>
 </section>
 
 <footer>
   <span class="footer-brand">Algorithmic Trading & Algorithmic Systems</span>
-  <span class="footer-note">© 2026 Alejandro Reynoso · Released under the MIT Licence · All content is original work · No third-party licences, grants, or institutional funding</span>
+  <span class="footer-note">© 2026 Alejandro Reynoso · Released under the MIT Licence · Original work · governance-first, transparent, reviewable, human-accountable</span>
   <a href="https://github.com/alexdibol" class="footer-link" target="_blank" rel="noopener">github.com/alexdibol →</a>
 </footer>
 
